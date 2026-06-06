@@ -111,6 +111,8 @@ See the skills applied. The [`examples/`](./examples) folder has real generated 
 | [`DashboardOverview.tsx`](./examples/dashboard-layout) | dashboard-layout |
 | [`States.tsx`](./examples/empty-and-loading-states) | empty-and-loading-states |
 
+Plus a set of **modern, archetype-flavored** examples — Analytics bento, CRM pipeline, Kanban board, AI chat thread, API usage meter, and a ⌘K command palette — in [`examples/`](./examples#modern-examples-by-saas-archetype).
+
 ---
 
 ## Usage
@@ -183,7 +185,7 @@ Open a [skill request](https://github.com/param087/saas-ui-skills/issues/new?tem
 
 Built by **[Param Bhavsar](https://github.com/param087)** — Google Summer of Code '19 @ TensorFlow, ex-HSBC. If this saves you from shipping janky UI, a ⭐ helps others find it.
 
-Looking for the ML counterpart? See **[agent-ml-skills](https://github.com/param087/agent-ml-skills)**.
+Part of a family of agent-skill packs: **[saas-starter-skills](https://github.com/param087/saas-starter-skills)** (full-stack: Next.js + Drizzle + Stripe) · **[agent-ml-skills](https://github.com/param087/agent-ml-skills)** (ML/DS/MLOps).
 
 ## License
 
