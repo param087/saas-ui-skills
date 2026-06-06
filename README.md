@@ -3,6 +3,7 @@
 **Production-grade SaaS UI skills for AI coding agents — React, Tailwind CSS & shadcn/ui.**
 
 [![CI](https://github.com/param087/saas-ui-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/param087/saas-ui-skills/actions/workflows/ci.yml)
+[![Live preview](https://img.shields.io/badge/live-preview-6d28d9)](https://param087.github.io/saas-ui-skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 ![Skills](https://img.shields.io/badge/skills-15-success)
 ![Node](https://img.shields.io/badge/node-%3E%3D18-43853d)
@@ -11,6 +12,8 @@
 Coding agents are great generalists but make the same **UI mistakes over and over**: inaccessible `<div>` dropdowns, forms with no validation or error states, data tables that break on empty/loading, modals that trap nothing, hard-coded colors that shatter in dark mode. `saas-ui-skills` is a curated pack of **15 battle-tested skills** that teach your agent to build SaaS interfaces like a senior product engineer — so it stops shipping janky UI.
 
 Works with **Codex, Claude Code, Cursor, and OpenCode**.
+
+> **[See the live preview gallery →](https://param087.github.io/saas-ui-skills/)** — all 12 example components rendered in the browser, with light/dark mode and interactive demos (pricing toggle, ⌘K command palette, dashboard chart).
 
 ---
 
@@ -100,7 +103,7 @@ Agents that support skills load the `description` up front and pull in the full 
 
 ## Examples
 
-See the skills applied. The [`examples/`](./examples) folder has real generated components — the kind of output an agent produces when it follows a skill:
+See the skills applied. The [`examples/`](./examples) folder has real generated components — the kind of output an agent produces when it follows a skill. **[View them rendered in the live gallery →](https://param087.github.io/saas-ui-skills/)**
 
 | Example | From skill |
 |---|---|
