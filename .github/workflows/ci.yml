@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-skills:
+    name: Validate skills
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate all skills
+        run: node scripts/validate-skills.mjs
+
+      - name: Smoke-test installer (list)
+        run: node install.mjs list
+
+      - name: Smoke-test installer (install into temp dir)
+        run: |
+          node install.mjs install --dir "$RUNNER_TEMP/skills-install"
+          test -f "$RUNNER_TEMP/skills-install/forms-and-validation/SKILL.md"

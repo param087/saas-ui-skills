@@ -1,0 +1,48 @@
+{
+  "name": "saas-ui-skills",
+  "version": "0.1.0",
+  "description": "Production-grade SaaS UI skills for AI coding agents — React, Tailwind CSS & shadcn/ui patterns for Codex, Claude Code, Cursor, and OpenCode.",
+  "type": "module",
+  "bin": {
+    "saas-ui-skills": "./install.mjs"
+  },
+  "scripts": {
+    "validate": "node scripts/validate-skills.mjs",
+    "install-skills": "node install.mjs"
+  },
+  "keywords": [
+    "ai-agents",
+    "agent-skills",
+    "skills",
+    "codex",
+    "claude-code",
+    "cursor",
+    "opencode",
+    "saas",
+    "ui",
+    "react",
+    "tailwindcss",
+    "shadcn-ui",
+    "design-system",
+    "frontend",
+    "components"
+  ],
+  "author": "Param Bhavsar (@param087)",
+  "license": "MIT",
+  "homepage": "https://github.com/param087/saas-ui-skills#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/param087/saas-ui-skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/param087/saas-ui-skills/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "install.mjs",
+    "skills/",
+    "scripts/"
+  ]
+}
