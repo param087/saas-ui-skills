@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign-in form · saas-ui-skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./theme.js"></script>
+    <link rel="stylesheet" href="./theme.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-20 border-b bg-background/80 backdrop-blur">
+      <div class="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
+        <a href="./index.html" class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <i data-lucide="arrow-left" class="h-4 w-4"></i> Gallery
+        </a>
+        <div class="h-4 w-px bg-border"></div>
+        <h1 class="text-sm font-semibold">Sign-in form</h1>
+        <span class="hidden rounded-full border px-2 py-0.5 text-xs text-muted-foreground sm:inline">forms-and-validation</span>
+        <button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode" class="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted">
+          <i data-lucide="sun-moon" class="h-4 w-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="mx-auto flex max-w-6xl flex-col items-center px-4 py-12">
+      <p class="mb-6 max-w-md text-center text-sm text-muted-foreground">
+        react-hook-form + zod with accessible shadcn/ui fields. Shown with a
+        server error mapped back onto the password field.
+      </p>
+
+      <div class="w-full max-w-sm rounded-xl border bg-card p-6 text-card-foreground shadow-sm">
+        <form class="space-y-4" novalidate onsubmit="return false">
+          <!-- Email -->
+          <div class="space-y-2">
+            <label for="email" class="text-sm font-medium leading-none">Email</label>
+            <input id="email" type="email" autocomplete="email" value="you@company.com"
+              class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
+          </div>
+
+          <!-- Password (error state) -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <label for="password" class="text-sm font-medium leading-none text-destructive">Password</label>
+              <a href="#" class="text-xs text-muted-foreground hover:underline">Forgot password?</a>
+            </div>
+            <input id="password" type="password" autocomplete="current-password" value="password"
+              aria-invalid="true"
+              class="flex h-9 w-full rounded-md border border-destructive bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-destructive" />
+            <p class="text-sm font-medium text-destructive">Invalid email or password</p>
+          </div>
+
+          <!-- Remember me -->
+          <div class="flex items-center gap-2">
+            <button type="button" role="checkbox" aria-checked="false" aria-label="Remember me for 30 days"
+              class="h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"></button>
+            <label class="text-sm font-normal leading-none">Remember me for 30 days</label>
+          </div>
+
+          <button type="submit"
+            class="inline-flex h-9 w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">
+            Sign in
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

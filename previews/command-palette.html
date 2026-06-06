@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Command palette · saas-ui-skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./theme.js"></script>
+    <link rel="stylesheet" href="./theme.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-20 border-b bg-background/80 backdrop-blur">
+      <div class="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
+        <a href="./index.html" class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <i data-lucide="arrow-left" class="h-4 w-4"></i> Gallery
+        </a>
+        <div class="h-4 w-px bg-border"></div>
+        <h1 class="text-sm font-semibold">Command palette</h1>
+        <span class="hidden rounded-full border px-2 py-0.5 text-xs text-muted-foreground sm:inline">navigation-patterns</span>
+        <button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode" class="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted">
+          <i data-lucide="sun-moon" class="h-4 w-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-12">
+      <p class="mb-6 text-sm text-muted-foreground">
+        Press <kbd class="rounded border bg-muted px-1.5 font-mono text-[11px]">⌘K</kbd> / <kbd class="rounded border bg-muted px-1.5 font-mono text-[11px]">Ctrl K</kbd> or click the search box to toggle the palette.
+      </p>
+
+      <!-- Trigger -->
+      <button onclick="openPalette()" class="inline-flex w-64 items-center gap-2 rounded-lg border bg-muted/40 px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted">
+        <i data-lucide="search" class="h-4 w-4"></i>
+        <span class="flex-1 text-left">Search…</span>
+        <kbd class="rounded border bg-background px-1.5 font-mono text-[11px]">⌘K</kbd>
+      </button>
+    </main>
+
+    <!-- Command dialog (open by default) -->
+    <div id="palette" class="fixed inset-0 z-50">
+      <div class="fixed inset-0 bg-black/50" onclick="closePalette()"></div>
+      <div role="dialog" aria-modal="true" aria-label="Command palette" class="fixed left-1/2 top-[18%] z-50 w-full max-w-lg -translate-x-1/2 overflow-hidden rounded-xl border bg-popover text-popover-foreground shadow-lg">
+        <div class="flex items-center border-b px-3">
+          <i data-lucide="search" class="mr-2 h-4 w-4 shrink-0 text-muted-foreground"></i>
+          <input autofocus placeholder="Type a command or search…" class="h-11 w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground" />
+        </div>
+        <div class="max-h-80 overflow-y-auto p-1">
+          <div class="px-2 py-1.5 text-xs font-medium text-muted-foreground">Navigation</div>
+          <div aria-selected="true" class="flex cursor-pointer items-center gap-2 rounded-sm bg-accent px-2 py-1.5 text-sm text-accent-foreground">
+            <i data-lucide="layout-dashboard" class="h-4 w-4"></i><span>Go to Dashboard</span><span class="ml-auto text-xs tracking-widest text-muted-foreground">G D</span>
+          </div>
+          <div class="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground">
+            <i data-lucide="credit-card" class="h-4 w-4"></i><span>Go to Billing</span><span class="ml-auto text-xs tracking-widest text-muted-foreground">G B</span>
+          </div>
+          <div class="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground">
+            <i data-lucide="settings" class="h-4 w-4"></i><span>Go to Settings</span><span class="ml-auto text-xs tracking-widest text-muted-foreground">G S</span>
+          </div>
+
+          <div class="-mx-1 my-1 h-px bg-border"></div>
+
+          <div class="px-2 py-1.5 text-xs font-medium text-muted-foreground">Actions</div>
+          <div class="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground">
+            <i data-lucide="plus" class="h-4 w-4"></i><span>Create project</span><span class="ml-auto text-xs tracking-widest text-muted-foreground">C</span>
+          </div>
+          <div class="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground">
+            <i data-lucide="user-plus" class="h-4 w-4"></i><span>Invite teammate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const palette = document.getElementById("palette");
+      function openPalette() { palette.classList.remove("hidden"); }
+      function closePalette() { palette.classList.add("hidden"); }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "k" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); palette.classList.toggle("hidden"); }
+        if (e.key === "Escape") closePalette();
+      });
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

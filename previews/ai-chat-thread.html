@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI chat thread · saas-ui-skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./theme.js"></script>
+    <link rel="stylesheet" href="./theme.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-20 border-b bg-background/80 backdrop-blur">
+      <div class="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
+        <a href="./index.html" class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <i data-lucide="arrow-left" class="h-4 w-4"></i> Gallery
+        </a>
+        <div class="h-4 w-px bg-border"></div>
+        <h1 class="text-sm font-semibold">AI chat thread</h1>
+        <span class="hidden rounded-full border px-2 py-0.5 text-xs text-muted-foreground sm:inline">empty-and-loading-states</span>
+        <button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode" class="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted">
+          <i data-lucide="sun-moon" class="h-4 w-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-2xl px-4 py-10">
+      <!-- Empty state -->
+      <h2 class="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Empty state</h2>
+      <div class="rounded-xl border">
+        <div class="flex flex-col items-center justify-center gap-4 py-16 text-center">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 text-white"><i data-lucide="sparkles" class="h-6 w-6"></i></span>
+          <div>
+            <p class="font-medium">Ask anything about your workspace</p>
+            <p class="text-sm text-muted-foreground">I can summarize, draft, and dig through your data.</p>
+          </div>
+          <div class="flex flex-wrap justify-center gap-2">
+            <button class="inline-flex h-8 items-center justify-center rounded-full border border-input bg-transparent px-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground">Summarize my last invoice</button>
+            <button class="inline-flex h-8 items-center justify-center rounded-full border border-input bg-transparent px-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground">Draft a release note</button>
+            <button class="inline-flex h-8 items-center justify-center rounded-full border border-input bg-transparent px-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground">Explain this error</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active thread + typing indicator -->
+      <h2 class="mb-2 mt-8 text-xs font-medium uppercase tracking-wide text-muted-foreground">Active thread</h2>
+      <div class="space-y-4 rounded-xl border p-4">
+        <!-- user -->
+        <div class="flex flex-row-reverse gap-3">
+          <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-muted text-[10px] font-medium">You</span>
+          <div class="max-w-[80%] rounded-2xl bg-primary px-3.5 py-2 text-sm leading-relaxed text-primary-foreground">Summarize my last invoice.</div>
+        </div>
+        <!-- assistant -->
+        <div class="flex gap-3">
+          <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-violet-600 text-white"><i data-lucide="sparkles" class="h-3.5 w-3.5"></i></span>
+          <div class="max-w-[80%] rounded-2xl bg-muted px-3.5 py-2 text-sm leading-relaxed">Invoice <span class="font-medium">#1042</span> for Northwind totals <span class="tabular-nums">$1,240.00</span>, paid on Jun 14. It covers 3 line items across the Pro plan.</div>
+        </div>
+        <!-- typing -->
+        <div class="flex gap-3" aria-live="polite" aria-label="Assistant is typing">
+          <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-violet-600 text-white"><i data-lucide="sparkles" class="h-3.5 w-3.5"></i></span>
+          <div class="flex items-center gap-1 rounded-2xl bg-muted px-4 py-3">
+            <span class="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground/60" style="animation-delay:0ms"></span>
+            <span class="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground/60" style="animation-delay:150ms"></span>
+            <span class="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground/60" style="animation-delay:300ms"></span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

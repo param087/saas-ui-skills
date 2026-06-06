@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard overview · saas-ui-skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./theme.js"></script>
+    <link rel="stylesheet" href="./theme.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-20 border-b bg-background/80 backdrop-blur">
+      <div class="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
+        <a href="./index.html" class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <i data-lucide="arrow-left" class="h-4 w-4"></i> Gallery
+        </a>
+        <div class="h-4 w-px bg-border"></div>
+        <h1 class="text-sm font-semibold">Dashboard overview</h1>
+        <span class="hidden rounded-full border px-2 py-0.5 text-xs text-muted-foreground sm:inline">dashboard-layout</span>
+        <button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode" class="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted">
+          <i data-lucide="sun-moon" class="h-4 w-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-10">
+      <div class="space-y-6">
+        <div>
+          <h1 class="text-2xl font-semibold tracking-tight">Overview</h1>
+          <p class="text-sm text-muted-foreground">Your key metrics for this billing period.</p>
+        </div>
+
+        <!-- KPI row: 1 -> 2 -> 4 columns -->
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+            <div class="flex flex-col space-y-1.5 p-6 pb-2">
+              <p class="text-sm text-muted-foreground">MRR</p>
+              <p class="text-3xl font-semibold tabular-nums">$24,580</p>
+            </div>
+            <div class="p-6 pt-0">
+              <p class="flex items-center gap-1 text-xs text-emerald-600">
+                <i data-lucide="arrow-up" class="h-3 w-3"></i><span class="tabular-nums">12.5%</span><span class="text-muted-foreground">vs last month</span>
+              </p>
+            </div>
+          </div>
+          <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+            <div class="flex flex-col space-y-1.5 p-6 pb-2">
+              <p class="text-sm text-muted-foreground">Active users</p>
+              <p class="text-3xl font-semibold tabular-nums">1,429</p>
+            </div>
+            <div class="p-6 pt-0">
+              <p class="flex items-center gap-1 text-xs text-emerald-600">
+                <i data-lucide="arrow-up" class="h-3 w-3"></i><span class="tabular-nums">4.2%</span><span class="text-muted-foreground">vs last month</span>
+              </p>
+            </div>
+          </div>
+          <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+            <div class="flex flex-col space-y-1.5 p-6 pb-2">
+              <p class="text-sm text-muted-foreground">Churn</p>
+              <p class="text-3xl font-semibold tabular-nums">2.1%</p>
+            </div>
+            <div class="p-6 pt-0">
+              <p class="flex items-center gap-1 text-xs text-destructive">
+                <i data-lucide="arrow-down" class="h-3 w-3"></i><span class="tabular-nums">0.4%</span><span class="text-muted-foreground">vs last month</span>
+              </p>
+            </div>
+          </div>
+          <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+            <div class="flex flex-col space-y-1.5 p-6 pb-2">
+              <p class="text-sm text-muted-foreground">Signups</p>
+              <p class="text-3xl font-semibold tabular-nums">312</p>
+            </div>
+            <div class="p-6 pt-0">
+              <p class="flex items-center gap-1 text-xs text-emerald-600">
+                <i data-lucide="arrow-up" class="h-3 w-3"></i><span class="tabular-nums">18%</span><span class="text-muted-foreground">vs last month</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main chart + side panel -->
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+          <div class="rounded-xl border bg-card text-card-foreground shadow-sm lg:col-span-2">
+            <div class="flex flex-col space-y-1.5 p-6">
+              <h3 class="font-semibold leading-none tracking-tight">Revenue</h3>
+              <p class="text-sm text-muted-foreground">Last 30 days</p>
+            </div>
+            <div class="h-72 p-6 pt-0">
+              <svg viewBox="0 0 600 240" preserveAspectRatio="none" class="h-full w-full" role="img" aria-label="Revenue trend chart">
+                <defs>
+                  <linearGradient id="rev" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="rgb(139 92 246)" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="rgb(139 92 246)" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <path d="M0,200 L60,180 L120,188 L180,150 L240,160 L300,120 L360,132 L420,90 L480,104 L540,60 L600,72 L600,240 L0,240 Z" fill="url(#rev)" />
+                <path d="M0,200 L60,180 L120,188 L180,150 L240,160 L300,120 L360,132 L420,90 L480,104 L540,60 L600,72" fill="none" stroke="rgb(139 92 246)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+            <div class="flex flex-col space-y-1.5 p-6">
+              <h3 class="font-semibold leading-none tracking-tight">Recent activity</h3>
+            </div>
+            <div class="p-6 pt-0">
+              <ul class="space-y-4 text-sm">
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"><i data-lucide="credit-card" class="h-3.5 w-3.5"></i></span>
+                  <div><p>Acme Corp upgraded to <span class="font-medium">Pro</span></p><p class="text-xs text-muted-foreground">2 hours ago</p></div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300"><i data-lucide="user-plus" class="h-3.5 w-3.5"></i></span>
+                  <div><p>3 new team members joined</p><p class="text-xs text-muted-foreground">5 hours ago</p></div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-violet-100 text-violet-700 dark:bg-violet-950 dark:text-violet-300"><i data-lucide="sparkles" class="h-3.5 w-3.5"></i></span>
+                  <div><p>Monthly report generated</p><p class="text-xs text-muted-foreground">Yesterday</p></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

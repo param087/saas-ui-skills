@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Invoices table · saas-ui-skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./theme.js"></script>
+    <link rel="stylesheet" href="./theme.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-20 border-b bg-background/80 backdrop-blur">
+      <div class="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
+        <a href="./index.html" class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <i data-lucide="arrow-left" class="h-4 w-4"></i> Gallery
+        </a>
+        <div class="h-4 w-px bg-border"></div>
+        <h1 class="text-sm font-semibold">Invoices table</h1>
+        <span class="hidden rounded-full border px-2 py-0.5 text-xs text-muted-foreground sm:inline">data-tables</span>
+        <button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode" class="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted">
+          <i data-lucide="sun-moon" class="h-4 w-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-3xl px-4 py-10">
+      <div class="space-y-3">
+        <!-- Bulk-action bar (visible because a row is selected) -->
+        <div class="flex items-center gap-3 rounded-md border bg-muted/50 px-3 py-2 text-sm">
+          <span>1 selected</span>
+          <button class="inline-flex h-8 items-center justify-center rounded-md bg-destructive px-3 text-xs font-medium text-destructive-foreground shadow-sm transition-colors hover:bg-destructive/90">
+            <i data-lucide="trash-2" class="mr-2 h-4 w-4"></i> Delete
+          </button>
+        </div>
+
+        <div class="rounded-lg border">
+          <table class="w-full caption-bottom text-sm">
+            <thead class="[&_tr]:border-b">
+              <tr class="border-b transition-colors">
+                <th class="h-11 w-10 px-4 text-left align-middle">
+                  <button role="checkbox" aria-checked="false" aria-label="Select all" class="h-4 w-4 rounded-sm border border-primary shadow"></button>
+                </th>
+                <th class="h-11 px-4 text-left align-middle font-medium text-muted-foreground" aria-sort="ascending">
+                  <button class="-ml-3 inline-flex h-8 items-center rounded-md px-3 font-medium transition-colors hover:bg-muted">
+                    Customer <i data-lucide="arrow-up-down" class="ml-2 h-3.5 w-3.5"></i>
+                  </button>
+                </th>
+                <th class="h-11 px-4 text-left align-middle font-medium text-muted-foreground">Status</th>
+                <th class="h-11 px-4 text-right align-middle font-medium text-muted-foreground">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b bg-muted transition-colors" data-state="selected">
+                <td class="p-4 align-middle">
+                  <button role="checkbox" aria-checked="true" aria-label="Select invoice INV-1024" class="flex h-4 w-4 items-center justify-center rounded-sm border border-primary bg-primary text-primary-foreground"><i data-lucide="check" class="h-3 w-3"></i></button>
+                </td>
+                <td class="p-4 align-middle">Northwind</td>
+                <td class="p-4 align-middle"><span class="inline-flex items-center rounded-full border border-transparent bg-emerald-600 px-2.5 py-0.5 text-xs font-semibold capitalize text-white">paid</span></td>
+                <td class="p-4 text-right align-middle tabular-nums">$1,240.00</td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50">
+                <td class="p-4 align-middle">
+                  <button role="checkbox" aria-checked="false" aria-label="Select invoice INV-1023" class="h-4 w-4 rounded-sm border border-primary shadow"></button>
+                </td>
+                <td class="p-4 align-middle">Acme Corp</td>
+                <td class="p-4 align-middle"><span class="inline-flex items-center rounded-full border border-transparent bg-primary px-2.5 py-0.5 text-xs font-semibold capitalize text-primary-foreground">open</span></td>
+                <td class="p-4 text-right align-middle tabular-nums">$480.00</td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50">
+                <td class="p-4 align-middle">
+                  <button role="checkbox" aria-checked="false" aria-label="Select invoice INV-1022" class="h-4 w-4 rounded-sm border border-primary shadow"></button>
+                </td>
+                <td class="p-4 align-middle">Globex</td>
+                <td class="p-4 align-middle"><span class="inline-flex items-center rounded-full border border-transparent bg-secondary px-2.5 py-0.5 text-xs font-semibold capitalize text-secondary-foreground">void</span></td>
+                <td class="p-4 text-right align-middle tabular-nums">$2,400.00</td>
+              </tr>
+              <tr class="transition-colors hover:bg-muted/50">
+                <td class="p-4 align-middle">
+                  <button role="checkbox" aria-checked="false" aria-label="Select invoice INV-1021" class="h-4 w-4 rounded-sm border border-primary shadow"></button>
+                </td>
+                <td class="p-4 align-middle">Initech</td>
+                <td class="p-4 align-middle"><span class="inline-flex items-center rounded-full border border-transparent bg-emerald-600 px-2.5 py-0.5 text-xs font-semibold capitalize text-white">paid</span></td>
+                <td class="p-4 text-right align-middle tabular-nums">$156.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

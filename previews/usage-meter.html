@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Usage meter · saas-ui-skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./theme.js"></script>
+    <link rel="stylesheet" href="./theme.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-20 border-b bg-background/80 backdrop-blur">
+      <div class="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
+        <a href="./index.html" class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <i data-lucide="arrow-left" class="h-4 w-4"></i> Gallery
+        </a>
+        <div class="h-4 w-px bg-border"></div>
+        <h1 class="text-sm font-semibold">Usage meter</h1>
+        <span class="hidden rounded-full border px-2 py-0.5 text-xs text-muted-foreground sm:inline">billing-and-pricing</span>
+        <button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode" class="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted">
+          <i data-lucide="sun-moon" class="h-4 w-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="mx-auto flex max-w-6xl flex-col items-center px-4 py-12">
+      <div class="w-full max-w-md rounded-xl border bg-card text-card-foreground shadow-sm">
+        <div class="flex flex-row items-center justify-between space-y-0 p-6">
+          <h3 class="text-base font-semibold leading-none tracking-tight">Usage this period</h3>
+          <span class="text-xs text-muted-foreground">Resets Jul 1</span>
+        </div>
+        <div class="space-y-5 p-6 pt-0">
+          <!-- API requests: amber (82%) -->
+          <div>
+            <div class="mb-1.5 flex items-baseline justify-between text-sm">
+              <span class="font-medium">API requests</span>
+              <span class="tabular-nums text-amber-600">824,000<span class="text-muted-foreground"> / 1,000,000</span></span>
+            </div>
+            <div class="relative h-2 overflow-hidden rounded-full bg-muted">
+              <span class="absolute inset-y-0 left-0 rounded-full bg-amber-500" style="width:82.4%"></span>
+            </div>
+          </div>
+          <!-- Seats: rose (90%) -->
+          <div>
+            <div class="mb-1.5 flex items-baseline justify-between text-sm">
+              <span class="font-medium">Seats</span>
+              <span class="tabular-nums text-rose-600">9<span class="text-muted-foreground"> / 10</span></span>
+            </div>
+            <div class="relative h-2 overflow-hidden rounded-full bg-muted">
+              <span class="absolute inset-y-0 left-0 rounded-full bg-rose-500" style="width:90%"></span>
+            </div>
+          </div>
+          <!-- Storage: rose (94%) -->
+          <div>
+            <div class="mb-1.5 flex items-baseline justify-between text-sm">
+              <span class="font-medium">Storage</span>
+              <span class="tabular-nums text-rose-600">47<span class="text-muted-foreground"> / 50 GB</span></span>
+            </div>
+            <div class="relative h-2 overflow-hidden rounded-full bg-muted">
+              <span class="absolute inset-y-0 left-0 rounded-full bg-rose-500" style="width:94%"></span>
+            </div>
+          </div>
+
+          <!-- near-limit callout -->
+          <div class="flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm dark:border-amber-900 dark:bg-amber-950/40">
+            <i data-lucide="alert-triangle" class="mt-0.5 h-4 w-4 shrink-0 text-amber-600"></i>
+            <p class="text-amber-800 dark:text-amber-200">You're approaching your plan limits. Upgrade to avoid overage charges.</p>
+          </div>
+
+          <button class="inline-flex h-9 w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">Upgrade plan</button>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

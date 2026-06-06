@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kanban board · saas-ui-skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./theme.js"></script>
+    <link rel="stylesheet" href="./theme.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-20 border-b bg-background/80 backdrop-blur">
+      <div class="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
+        <a href="./index.html" class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <i data-lucide="arrow-left" class="h-4 w-4"></i> Gallery
+        </a>
+        <div class="h-4 w-px bg-border"></div>
+        <h1 class="text-sm font-semibold">Kanban board</h1>
+        <span class="hidden rounded-full border px-2 py-0.5 text-xs text-muted-foreground sm:inline">component-architecture</span>
+        <button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode" class="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted">
+          <i data-lucide="sun-moon" class="h-4 w-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-10">
+      <div class="flex gap-4 overflow-x-auto pb-2">
+        <!-- Backlog -->
+        <section aria-label="Backlog" class="flex w-72 shrink-0 flex-col rounded-xl bg-muted/40">
+          <header class="flex items-center justify-between px-3 py-2.5">
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-slate-400"></span>
+              <h3 class="text-sm font-medium">Backlog</h3>
+              <span class="tabular-nums text-xs text-muted-foreground">2</span>
+            </div>
+            <button class="inline-flex h-6 w-6 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted" aria-label="Add card to Backlog"><i data-lucide="plus" class="h-4 w-4"></i></button>
+          </header>
+          <div class="flex flex-col gap-2 px-2 pb-2">
+            <article class="rounded-lg border bg-background p-3 shadow-sm transition hover:shadow-md">
+              <span class="mb-2 inline-flex items-center rounded-full border border-transparent bg-secondary px-2.5 py-0.5 text-[11px] font-semibold text-secondary-foreground">Research</span>
+              <p class="text-sm font-medium leading-snug">Audit onboarding funnel</p>
+              <div class="mt-3 flex items-center justify-between"><span class="text-xs text-muted-foreground">#161</span><span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-muted text-[10px] font-medium">PB</span></div>
+            </article>
+            <article class="rounded-lg border bg-background p-3 shadow-sm transition hover:shadow-md">
+              <span class="mb-2 inline-flex items-center rounded-full border border-transparent bg-secondary px-2.5 py-0.5 text-[11px] font-semibold text-secondary-foreground">Backend</span>
+              <p class="text-sm font-medium leading-snug">Spec billing webhooks</p>
+              <div class="mt-3 flex items-center justify-between"><span class="text-xs text-muted-foreground">#147</span><span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-muted text-[10px] font-medium">AK</span></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- In progress -->
+        <section aria-label="In progress" class="flex w-72 shrink-0 flex-col rounded-xl bg-muted/40">
+          <header class="flex items-center justify-between px-3 py-2.5">
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-amber-500"></span>
+              <h3 class="text-sm font-medium">In progress</h3>
+              <span class="tabular-nums text-xs text-muted-foreground">1</span>
+            </div>
+            <button class="inline-flex h-6 w-6 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted" aria-label="Add card to In progress"><i data-lucide="plus" class="h-4 w-4"></i></button>
+          </header>
+          <div class="flex flex-col gap-2 px-2 pb-2">
+            <article class="rounded-lg border bg-background p-3 shadow-sm transition hover:shadow-md">
+              <span class="mb-2 inline-flex items-center rounded-full border border-transparent bg-secondary px-2.5 py-0.5 text-[11px] font-semibold text-secondary-foreground">Frontend</span>
+              <p class="text-sm font-medium leading-snug">Build command palette</p>
+              <div class="mt-3 flex items-center justify-between"><span class="text-xs text-muted-foreground">#147</span><span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-muted text-[10px] font-medium">JD</span></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Done -->
+        <section aria-label="Done" class="flex w-72 shrink-0 flex-col rounded-xl bg-muted/40">
+          <header class="flex items-center justify-between px-3 py-2.5">
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+              <h3 class="text-sm font-medium">Done</h3>
+              <span class="tabular-nums text-xs text-muted-foreground">1</span>
+            </div>
+            <button class="inline-flex h-6 w-6 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted" aria-label="Add card to Done"><i data-lucide="plus" class="h-4 w-4"></i></button>
+          </header>
+          <div class="flex flex-col gap-2 px-2 pb-2">
+            <article class="rounded-lg border bg-background p-3 shadow-sm transition hover:shadow-md">
+              <span class="mb-2 inline-flex items-center rounded-full border border-transparent bg-secondary px-2.5 py-0.5 text-[11px] font-semibold text-secondary-foreground">Design</span>
+              <p class="text-sm font-medium leading-snug">Dark mode tokens</p>
+              <div class="mt-3 flex items-center justify-between"><span class="text-xs text-muted-foreground">#112</span><span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-muted text-[10px] font-medium">MR</span></div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

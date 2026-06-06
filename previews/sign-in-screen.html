@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign-in screen · saas-ui-skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./theme.js"></script>
+    <link rel="stylesheet" href="./theme.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-20 border-b bg-background/80 backdrop-blur">
+      <div class="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
+        <a href="./index.html" class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <i data-lucide="arrow-left" class="h-4 w-4"></i> Gallery
+        </a>
+        <div class="h-4 w-px bg-border"></div>
+        <h1 class="text-sm font-semibold">Sign-in screen</h1>
+        <span class="hidden rounded-full border px-2 py-0.5 text-xs text-muted-foreground sm:inline">auth-screens</span>
+        <button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode" class="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted">
+          <i data-lucide="sun-moon" class="h-4 w-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="flex min-h-[calc(100vh-3.5rem)] items-center justify-center bg-muted/30 p-4">
+      <div class="w-full max-w-sm">
+        <div class="mb-6 text-center">
+          <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+            <span class="text-lg font-bold">S</span>
+          </div>
+          <h1 class="mt-4 text-2xl font-semibold tracking-tight">Welcome back</h1>
+          <p class="mt-1 text-sm text-muted-foreground">Sign in to your account to continue.</p>
+        </div>
+
+        <div class="rounded-lg border bg-card p-6 shadow-sm">
+          <div class="grid gap-2">
+            <button type="button"
+              class="inline-flex h-9 w-full items-center justify-center rounded-md border border-input bg-transparent px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground">
+              <svg viewBox="0 0 24 24" class="mr-2 h-4 w-4" aria-hidden="true">
+                <path fill="currentColor" d="M21.35 11.1H12v2.9h5.35c-.23 1.4-1.6 4.1-5.35 4.1A6 6 0 1 1 16 7.3l2-2A9 9 0 1 0 21.35 11.1Z" />
+              </svg>
+              Continue with Google
+            </button>
+          </div>
+
+          <div class="relative my-5">
+            <div class="h-px w-full bg-border"></div>
+            <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-card px-2 text-xs uppercase text-muted-foreground">or</span>
+          </div>
+
+          <!-- composed SignInForm -->
+          <form class="space-y-4" novalidate onsubmit="return false">
+            <div class="space-y-2">
+              <label for="email" class="text-sm font-medium leading-none">Email</label>
+              <input id="email" type="email" autocomplete="email" placeholder="you@company.com"
+                class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <label for="password" class="text-sm font-medium leading-none">Password</label>
+                <a href="#" class="text-xs text-muted-foreground hover:underline">Forgot password?</a>
+              </div>
+              <input id="password" type="password" autocomplete="current-password"
+                class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" role="checkbox" aria-checked="false" aria-label="Remember me for 30 days"
+                class="h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"></button>
+              <label class="text-sm font-normal leading-none">Remember me for 30 days</label>
+            </div>
+            <button type="submit"
+              class="inline-flex h-9 w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">
+              Sign in
+            </button>
+          </form>
+        </div>
+
+        <p class="mt-4 text-center text-sm text-muted-foreground">
+          Don't have an account?
+          <a href="#" class="font-medium text-foreground hover:underline">Sign up</a>
+        </p>
+      </div>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

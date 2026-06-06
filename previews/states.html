@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Empty &amp; loading states · saas-ui-skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./theme.js"></script>
+    <link rel="stylesheet" href="./theme.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-20 border-b bg-background/80 backdrop-blur">
+      <div class="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
+        <a href="./index.html" class="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <i data-lucide="arrow-left" class="h-4 w-4"></i> Gallery
+        </a>
+        <div class="h-4 w-px bg-border"></div>
+        <h1 class="text-sm font-semibold">Empty &amp; loading states</h1>
+        <span class="hidden rounded-full border px-2 py-0.5 text-xs text-muted-foreground sm:inline">empty-and-loading-states</span>
+        <button type="button" onclick="toggleTheme()" aria-label="Toggle dark mode" class="ml-auto inline-flex h-8 w-8 items-center justify-center rounded-md border transition-colors hover:bg-muted">
+          <i data-lucide="sun-moon" class="h-4 w-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-5xl px-4 py-10">
+      <p class="mb-6 text-sm text-muted-foreground">
+        The four states every data view needs — one <code class="rounded bg-muted px-1 py-0.5 text-xs">DataView</code> switches between them.
+      </p>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- Loading -->
+        <section>
+          <h2 class="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Loading</h2>
+          <div class="space-y-3" aria-busy="true" aria-live="polite">
+            <div class="flex items-center gap-3 rounded-lg border p-4">
+              <div class="h-10 w-10 animate-pulse rounded-full bg-muted"></div>
+              <div class="flex-1 space-y-2"><div class="h-4 w-1/3 animate-pulse rounded-md bg-muted"></div><div class="h-3 w-1/2 animate-pulse rounded-md bg-muted"></div></div>
+              <div class="h-8 w-16 animate-pulse rounded-md bg-muted"></div>
+            </div>
+            <div class="flex items-center gap-3 rounded-lg border p-4">
+              <div class="h-10 w-10 animate-pulse rounded-full bg-muted"></div>
+              <div class="flex-1 space-y-2"><div class="h-4 w-1/3 animate-pulse rounded-md bg-muted"></div><div class="h-3 w-1/2 animate-pulse rounded-md bg-muted"></div></div>
+              <div class="h-8 w-16 animate-pulse rounded-md bg-muted"></div>
+            </div>
+            <div class="flex items-center gap-3 rounded-lg border p-4">
+              <div class="h-10 w-10 animate-pulse rounded-full bg-muted"></div>
+              <div class="flex-1 space-y-2"><div class="h-4 w-1/3 animate-pulse rounded-md bg-muted"></div><div class="h-3 w-1/2 animate-pulse rounded-md bg-muted"></div></div>
+              <div class="h-8 w-16 animate-pulse rounded-md bg-muted"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Empty -->
+        <section>
+          <h2 class="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Empty</h2>
+          <div class="flex flex-col items-center justify-center rounded-lg border border-dashed p-12 text-center">
+            <i data-lucide="inbox" class="h-10 w-10 text-muted-foreground"></i>
+            <h3 class="mt-4 text-sm font-semibold">No invoices yet</h3>
+            <p class="mt-1 max-w-sm text-sm text-muted-foreground">Create your first invoice and it'll show up here.</p>
+            <button class="mt-4 inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90">
+              <i data-lucide="plus" class="mr-2 h-4 w-4"></i> New invoice
+            </button>
+          </div>
+        </section>
+
+        <!-- Error -->
+        <section>
+          <h2 class="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Error</h2>
+          <div class="flex flex-col items-center justify-center gap-3 rounded-lg border border-destructive/30 p-10 text-center">
+            <i data-lucide="alert-circle" class="h-8 w-8 text-destructive"></i>
+            <p class="text-sm">Couldn't load invoices.</p>
+            <button class="inline-flex h-8 items-center justify-center rounded-md border border-input bg-transparent px-3 text-xs font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground">Try again</button>
+          </div>
+        </section>
+
+        <!-- Ready -->
+        <section>
+          <h2 class="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">Ready</h2>
+          <ul class="space-y-2">
+            <li class="rounded-lg border p-4 text-sm">Invoice #1042 — Northwind</li>
+            <li class="rounded-lg border p-4 text-sm">Invoice #1041 — Acme Corp</li>
+            <li class="rounded-lg border p-4 text-sm">Invoice #1040 — Globex</li>
+            <li class="rounded-lg border p-4 text-sm">Invoice #1039 — Initech</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
